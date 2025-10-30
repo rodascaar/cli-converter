@@ -24,6 +24,9 @@ archives:
     format_overrides:
       - goos: windows
         format: zip
+    files:
+      - "*.md"
+      - "LICENSE*"
 
 # Checksum customization
 checksum:
@@ -58,8 +61,3 @@ github_urls:
 # Metadata
 metadata:
   mod_timestamp: '{{ .CommitTimestamp }}'
-
-# Additional files to include in the release
-extra_files:
-  - glob: "*.md"
-  - glob: "LICENSE*"
