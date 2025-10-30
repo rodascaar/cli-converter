@@ -63,12 +63,12 @@ func (p *ProgressBar) Start(total int64) {
 
 // Update updates the progress bar
 func (p *ProgressBar) Update(current int64) {
-	p.bar.Set64(current)
+	_ = p.bar.Set64(current)
 }
 
 // Finish finishes the progress bar
 func (p *ProgressBar) Finish() {
-	p.bar.Finish()
+	_ = p.bar.Finish()
 	elapsed := time.Since(p.start)
 	fmt.Fprintf(p.writer, "Completed in %s\n", elapsed.Round(time.Second))
 }
@@ -76,7 +76,7 @@ func (p *ProgressBar) Finish() {
 // Error shows an error on the progress bar
 func (p *ProgressBar) Error(err error) {
 	p.bar.Describe(fmt.Sprintf("[ERROR] %v", err))
-	p.bar.Finish()
+	_ = p.bar.Finish()
 }
 
 // ProgressParser parses ffmpeg progress output

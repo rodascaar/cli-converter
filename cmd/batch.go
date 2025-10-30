@@ -41,7 +41,7 @@ func init() {
 
 	// Required flags
 	batchCmd.Flags().StringP("to", "", "", "formato de destino (requerido)")
-	batchCmd.MarkFlagRequired("to")
+	_ = batchCmd.MarkFlagRequired("to")
 
 	// Output options
 	batchCmd.Flags().StringVarP(&batchOutputDir, "output-dir", "o", "", "directorio de salida")
